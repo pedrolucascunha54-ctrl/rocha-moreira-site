@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rocha e Moreira Sociedade de Advogados — Isenção de impostos para PCDs, direitos de servidores públicos, processos administrativos, licitações e contratos. Ponte Nova - MG." />
+  <title>Rocha e Moreira | Sociedade de Advogados</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ── LOADER ─────────────────────────────────────── -->
+<div id="loader">
+  <div class="loader-brand">R&amp;M</div>
+  <div class="loader-sub">Rocha e Moreira</div>
+  <div class="loader-bar-wrap"><div id="loader-bar"></div></div>
+  <div id="loader-pct">0%</div>
+</div>
+
+<!-- ── CANVAS (fixed, behind everything) ──────────── -->
+<div id="canvas-wrap"><canvas id="main-canvas"></canvas></div>
+
+<!-- ── OVERLAY (fixed, darkens canvas) ────────────── -->
+<div id="scene-overlay"></div>
+
+<!-- ── HEADER ─────────────────────────────────────── -->
+<header id="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo" id="logo-home">
+      <span class="logo-rm">R&amp;M</span>
+      <span class="logo-text">
+        <span class="logo-l1">Rocha e Moreira</span>
+        <span class="logo-l2">Sociedade de Advogados</span>
+      </span>
+    </a>
+    <nav class="main-nav">
+      <a href="#" data-goto="0">Início</a>
+      <a href="#" data-goto="0.14">Especialidades</a>
+      <a href="#" data-goto="0.41">Escritório</a>
+      <a href="#" data-goto="0.53">Equipe</a>
+      <a href="#" data-goto="0.75">Depoimentos</a>
+      <a href="#" data-goto="0.92">Contato</a>
+    </nav>
+    <a href="https://wa.me/5531992613490?text=Olá,%20gostaria%20de%20falar%20com%20um%20advogado." target="_blank" rel="noopener" class="btn-nav-cta">Falar com um advogado</a>
+    <button class="hamburger" id="hamburger" aria-expanded="false" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="#" data-goto="0">Início</a>
+    <a href="#" data-goto="0.14">Especialidades</a>
+    <a href="#" data-goto="0.41">Escritório</a>
+    <a href="#" data-goto="0.53">Equipe</a>
+    <a href="#" data-goto="0.75">Depoimentos</a>
+    <a href="#" data-goto="0.92">Contato</a>
+    <a href="https://wa.me/5531992613490" target="_blank" class="mobile-cta">Falar com um advogado</a>
+  </nav>
+</header>
+
+<!-- ── SCROLL CONTAINER (1400vh — creates scroll space) ── -->
+<div id="scroll-container">
+
+  <!-- ①  HERO  ·  enter 0%  leave 11%  midpoint 5.5% → top:77vh -->
+  <section class="scroll-section align-left" style="top:50vh"
+           data-enter="0" data-leave="11" data-animation="fade-up" data-persist="true">
+    <div class="container">
+      <div class="section-inner">
+        <div class="hero-badges s-el" data-delay="0">
+          <span class="badge">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#C89A3D" stroke-width="1.5"/><path d="M4 6l1.5 1.5L8 4" stroke="#C89A3D" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Atendimento em Ponte Nova – MG
+          </span>
+          <span class="badge">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M6 1l1.27 2.58L10 4.1l-2 1.95.47 2.75L6 7.5 3.53 8.8 4 6.05 2 4.1l2.73-.52L6 1z" fill="#C89A3D"/></svg>
+            Avaliação 5,0 no Google
+          </span>
+          <span class="badge">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><rect x="1" y="2" width="10" height="8" rx="1.5" stroke="#C89A3D" stroke-width="1.5"/><path d="M4 6h4M4 8h2" stroke="#C89A3D" stroke-width="1.2" stroke-linecap="round"/></svg>
+            Atuação especializada
+          </span>
+        </div>
+        <h1 class="hero-headline s-el" data-delay="120">
+          Defesa jurídica<br /><em>estratégica</em> para quem<br />precisa de segurança,<br />clareza e confiança.
+        </h1>
+        <p class="hero-sub s-el" data-delay="280">
+          Atuação especializada em isenção de impostos para PCDs, direitos de servidores públicos, processos administrativos, licitações e contratos.
+        </p>
+        <div class="hero-btns s-el" data-delay="420">
+          <a href="https://wa.me/5531992613490?text=Olá,%20gostaria%20de%20falar%20com%20um%20advogado." target="_blank" rel="noopener" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.134.558 4.133 1.527 5.874L0 24l6.322-1.499A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 01-5.028-1.381l-.36-.214-3.735.885.932-3.635-.235-.374A9.787 9.787 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>
+            Falar pelo WhatsApp
+          </a>
+          <a href="#" data-goto="0.14" class="btn-secondary">Conhecer especialidades</a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>Role para baixo</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ②  ESPECIALIDADES  ·  enter 14%  leave 27%  midpoint 20.5% → top:287vh -->
+  <section class="scroll-section align-center" style="top:185vh"
+           data-enter="14" data-leave="27" data-animation="stagger-up">
+    <div class="container">
+      <div class="section-inner">
+        <div class="s-header s-el" data-delay="0">
+          <span class="section-tag">Áreas de atuação</span>
+          <h2 class="section-title">Soluções jurídicas para pessoas,<br /><em>servidores</em> e empresas.</h2>
+          <p class="section-sub">Atendemos com expertise técnica e atendimento humanizado em cada área de atuação.</p>
+        </div>
+        <div class="cards-grid">
+          <div class="esp-card s-el" data-delay="80">
+            <div class="card-icon"><svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="#C89A3D" stroke-width="1.5" stroke-linecap="round"><path d="M16 4a9 9 0 100 18A9 9 0 0016 4z"/><path d="M12 16h1l2-4 2 8 2-6 1 2h2"/><path d="M9 26l-4 4M23 26l4 4"/></svg></div>
+            <h3>Isenção de Impostos para PCDs</h3>
+            <p>Orientação completa para pessoas com deficiência na obtenção de isenção de IPVA, ICMS e IPI.</p>
+            <a href="https://wa.me/5531992613490?text=Olá,%20tenho%20interesse%20em%20isenção%20para%20PCD." target="_blank" class="card-link">Saiba mais →</a>
+          </div>
+          <div class="esp-card s-el" data-delay="160">
+            <div class="card-icon"><svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="#C89A3D" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="6" width="24" height="20" rx="2"/><path d="M4 12h24M12 6V4M20 6V4M9 18h5M9 22h10"/></svg></div>
+            <h3>Direitos dos Servidores Públicos</h3>
+            <p>Defesa de servidores municipais, estaduais e federais em remuneração, auxílios e carreira.</p>
+            <a href="https://wa.me/5531992613490?text=Olá,%20sou%20servidor%20público%20e%20preciso%20de%20orientação." target="_blank" class="card-link">Saiba mais →</a>
+          </div>
+          <div class="esp-card s-el" data-delay="240">
+            <div class="card-icon"><svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="#C89A3D" stroke-width="1.5" stroke-linecap="round"><path d="M8 4h16a2 2 0 012 2v20a2 2 0 01-2 2H8a2 2 0 01-2-2V6a2 2 0 012-2z"/><path d="M11 10h10M11 14h10M11 18h6"/></svg></div>
+            <h3>PAD e Processos Administrativos</h3>
+            <p>Defesa técnica em PADs garantindo contraditório e ampla defesa ao servidor.</p>
+            <a href="https://wa.me/5531992613490?text=Olá,%20preciso%20de%20ajuda%20com%20PAD." target="_blank" class="card-link">Saiba mais →</a>
+          </div>
+          <div class="esp-card s-el" data-delay="320">
+            <div class="card-icon"><svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="#C89A3D" stroke-width="1.5" stroke-linecap="round"><circle cx="16" cy="16" r="12"/><path d="M16 10v6l4 3"/></svg></div>
+            <h3>Remuneração e Auxílios</h3>
+            <p>Análise e defesa de direitos relativos a adicionais, gratificações e auxílios funcionais.</p>
+            <a href="https://wa.me/5531992613490?text=Olá,%20preciso%20de%20orientação%20sobre%20remuneração." target="_blank" class="card-link">Saiba mais →</a>
+          </div>
+          <div class="esp-card s-el" data-delay="400">
+            <div class="card-icon"><svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="#C89A3D" stroke-width="1.5" stroke-linecap="round"><path d="M6 8h20v4H6zM6 16h20v4H6zM6 24h12v4H6z"/></svg></div>
+            <h3>Licitações</h3>
+            <p>Consultoria em processos licitatórios para empresas e órgãos públicos com conformidade legal.</p>
+            <a href="https://wa.me/5531992613490?text=Olá,%20preciso%20de%20assessoria%20em%20licitações." target="_blank" class="card-link">Saiba mais →</a>
+          </div>
+          <div class="esp-card s-el" data-delay="480">
+            <div class="card-icon"><svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="#C89A3D" stroke-width="1.5" stroke-linecap="round"><path d="M4 8h24M4 16h24M4 24h24"/><circle cx="8" cy="8" r="2"/><circle cx="8" cy="16" r="2"/><circle cx="8" cy="24" r="2"/></svg></div>
+            <h3>Contratos e Consultoria</h3>
+            <p>Elaboração, revisão e análise de contratos para empresas e órgãos públicos.</p>
+            <a href="https://wa.me/5531992613490?text=Olá,%20preciso%20de%20consultoria%20em%20contratos." target="_blank" class="card-link">Saiba mais →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ③  DIFERENCIAIS  ·  enter 28%  leave 41%  midpoint 34.5% → top:483vh -->
+  <section class="scroll-section align-center" style="top:311vh"
+           data-enter="28" data-leave="41" data-animation="stagger-up">
+    <div class="container">
+      <div class="section-inner">
+        <div class="s-header s-el" data-delay="0">
+          <span class="section-tag">Por que nos escolher</span>
+          <h2 class="section-title" style="color:#fff">Experiência, estratégia e<br /><em>atendimento humano</em> em cada caso.</h2>
+        </div>
+        <div class="dif-grid">
+          <div class="dif-item s-el" data-delay="80">
+            <div class="dif-icon"><svg width="24" height="24" viewBox="0 0 28 28" fill="none" stroke="#C89A3D" stroke-width="1.5" stroke-linecap="round"><path d="M14 3C8 3 3 8 3 14s5 11 11 11 11-5 11-11S20 3 14 3z"/><path d="M9 14l3 3 7-7"/></svg></div>
+            <h4>Atendimento claro e próximo</h4>
+            <p>Comunicação direta, sem juridiquês, em cada etapa.</p>
+          </div>
+          <div class="dif-item s-el" data-delay="140">
+            <div class="dif-icon"><svg width="24" height="24" viewBox="0 0 28 28" fill="none" stroke="#C89A3D" stroke-width="1.5" stroke-linecap="round"><circle cx="14" cy="10" r="5"/><path d="M5 24c0-5 4-8 9-8s9 3 9 8"/></svg></div>
+            <h4>Análise individual de cada caso</h4>
+            <p>Cada situação é tratada com atenção única.</p>
+          </div>
+          <div class="dif-item s-el" data-delay="200">
+            <div class="dif-icon"><svg width="24" height="24" viewBox="0 0 28 28" fill="none" stroke="#C89A3D" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="4" width="20" height="20" rx="3"/><path d="M9 14h10M9 10h6M9 18h8"/></svg></div>
+            <h4>Atuação especializada</h4>
+            <p>Foco em áreas com domínio técnico comprovado.</p>
+          </div>
+          <div class="dif-item s-el" data-delay="260">
+            <div class="dif-icon"><svg width="24" height="24" viewBox="0 0 28 28" fill="none" stroke="#C89A3D" stroke-width="1.5" stroke-linecap="round"><path d="M14 3l3 6 6.5 1-4.7 4.6 1.1 6.5L14 18l-5.9 3.1 1.1-6.5L4.5 10l6.5-1L14 3z"/></svg></div>
+            <h4>Avaliação 5,0 no Google</h4>
+            <p>Notas máximas e depoimentos espontâneos reais.</p>
+          </div>
+          <div class="dif-item s-el" data-delay="320">
+            <div class="dif-icon"><svg width="24" height="24" viewBox="0 0 28 28" fill="none" stroke="#C89A3D" stroke-width="1.5" stroke-linecap="round"><path d="M4 20V10a2 2 0 012-2h16a2 2 0 012 2v10M4 20h20"/><path d="M10 20V14M14 20V10M18 20V16"/></svg></div>
+            <h4>Escritório físico em Ponte Nova</h4>
+            <p>Estrutura presencial para atendimento da região.</p>
+          </div>
+          <div class="dif-item s-el" data-delay="380">
+            <div class="dif-icon"><svg width="24" height="24" viewBox="0 0 28 28" fill="none" stroke="#C89A3D" stroke-width="1.5" stroke-linecap="round"><path d="M14 3C8.48 3 4 7.48 4 13c0 2.39.83 4.59 2.2 6.32L4 23l4.1-1.26A9.96 9.96 0 0014 23c5.52 0 10-4.48 10-10S19.52 3 14 3z"/></svg></div>
+            <h4>Comunicação pelo WhatsApp</h4>
+            <p>Primeiro atendimento ágil e humanizado.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ④  SOBRE  ·  enter 41%  leave 53%  midpoint 47% → top:658vh -->
+  <section class="scroll-section align-right" style="top:446vh"
+           data-enter="41" data-leave="58" data-animation="slide-right">
+    <div class="container">
+      <div class="section-inner">
+        <span class="section-tag s-el" data-delay="0">O escritório</span>
+        <h2 class="section-title s-el" data-delay="100" style="color:#fff">Um escritório preparado para<br /><em>defender direitos</em> com<br />seriedade e estratégia.</h2>
+        <p class="s-body s-el" data-delay="220">O Rocha e Moreira une conhecimento técnico, atendimento humanizado e visão estratégica para orientar clientes em temas sensíveis como direitos de pessoas com deficiência, servidores públicos, processos administrativos, licitações e contratos.</p>
+        <div class="sobre-stats s-el" data-delay="340">
+          <div class="stat-block">
+            <span class="stat-num" data-target="5.0" data-dec="1">0</span><span class="stat-suf">★</span>
+            <span class="stat-lbl">Google</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-num" data-target="6" data-dec="0">0</span><span class="stat-suf">+</span>
+            <span class="stat-lbl">Especialidades</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-num" data-target="100" data-dec="0">0</span><span class="stat-suf">%</span>
+            <span class="stat-lbl">Dedicação</span>
+          </div>
+        </div>
+        <a href="https://wa.me/5531992613490?text=Olá,%20gostaria%20de%20falar%20com%20o%20escritório." target="_blank" rel="noopener" class="btn-primary s-el" data-delay="460">Entrar em contato</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤  EQUIPE  ·  enter 53%  leave 63%  midpoint 58% → top:522vh -->
+  <section class="scroll-section align-center section-equipe" style="top:548vh"
+           data-enter="53" data-leave="68" data-animation="fade-up">
+    <div class="container">
+      <div class="section-inner">
+        <div class="s-header s-el" data-delay="0">
+          <span class="section-tag">Advogados responsáveis</span>
+          <h2 class="section-title" style="color:#fff">Profissionais comprometidos<br />com cada <em>resultado</em>.</h2>
+        </div>
+        <div class="equipe-grid">
+          <div class="equipe-card s-el" data-delay="80">
+            <div class="equipe-photo-wrap">
+              <img src="images/dr-raphael.png" alt="" />
+              <div class="equipe-photo-overlay"></div>
+            </div>
+            <div class="equipe-info">
+              <span class="equipe-role">Advogado</span>
+              <h3 class="equipe-name">Dr. Raphael Andrade Moreira</h3>
+              <p>Atuação estratégica na defesa de direitos, processos administrativos e demandas jurídicas de alta responsabilidade.</p>
+            </div>
+          </div>
+          <div class="equipe-card s-el" data-delay="180">
+            <div class="equipe-photo-wrap">
+              <img src="images/dra-mariana.png" alt="" />
+              <div class="equipe-photo-overlay"></div>
+            </div>
+            <div class="equipe-info">
+              <span class="equipe-role">Advogada</span>
+              <h3 class="equipe-name">Dra. Mariana Rocha</h3>
+              <p>Atendimento jurídico humanizado, técnico e comprometido com a segurança de cada cliente.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑥  COMO FUNCIONA  ·  enter 63%  leave 80%  midpoint 71.5% → top:644vh -->
+  <section class="scroll-section align-left" style="top:644vh"
+           data-enter="63" data-leave="80" data-animation="stagger-up">
+    <div class="container">
+      <div class="section-inner">
+        <div class="s-header s-el" data-delay="0">
+          <span class="section-tag">Processo</span>
+          <h2 class="section-title" style="color:#fff">Como funciona o <em>atendimento</em></h2>
+        </div>
+        <div class="timeline">
+          <div class="tl-line"><div class="tl-progress" id="tl-progress"></div></div>
+          <div class="tl-step s-el" data-delay="80">
+            <div class="tl-num">01</div>
+            <div class="tl-body"><h4>Primeiro contato</h4><p>O cliente envia sua dúvida pelo WhatsApp de forma simples.</p></div>
+          </div>
+          <div class="tl-step s-el" data-delay="200">
+            <div class="tl-num">02</div>
+            <div class="tl-body"><h4>Análise inicial</h4><p>A equipe entende o caso e identifica os caminhos possíveis.</p></div>
+          </div>
+          <div class="tl-step s-el" data-delay="320">
+            <div class="tl-num">03</div>
+            <div class="tl-body"><h4>Estratégia jurídica</h4><p>O escritório define a melhor abordagem para proteger seus direitos.</p></div>
+          </div>
+          <div class="tl-step s-el" data-delay="440">
+            <div class="tl-num">04</div>
+            <div class="tl-body"><h4>Acompanhamento</h4><p>O cliente recebe orientação durante todo o processo.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑦  DEPOIMENTOS  ·  enter 75%  leave 88%  midpoint 81.5% → top:734vh -->
+  <section class="scroll-section align-center" style="top:734vh"
+           data-enter="75" data-leave="88" data-animation="stagger-up">
+    <div class="container">
+      <div class="section-inner">
+        <div class="s-header s-el" data-delay="0">
+          <span class="section-tag">Depoimentos</span>
+          <h2 class="section-title" style="color:#fff">O que os clientes <em>dizem</em></h2>
+          <div class="google-seal s-el" data-delay="80">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            <span class="g-stars">★★★★★</span><strong>5,0</strong><span>no Google</span>
+          </div>
+        </div>
+        <div class="dep-grid">
+          <div class="dep-card s-el" data-delay="120"><div class="dep-stars">★★★★★</div><blockquote>"Profissionais atenciosos, atualizados e comprometidos."</blockquote><cite>Ana Paula Vilela Duarte</cite></div>
+          <div class="dep-card s-el" data-delay="200"><div class="dep-stars">★★★★★</div><blockquote>"Excelente profissional, me ajudou muito."</blockquote><cite>Luiza Lizardo</cite></div>
+          <div class="dep-card s-el" data-delay="280"><div class="dep-stars">★★★★★</div><blockquote>"Atendimento magnífico com conhecimento e desenvolvimento nas causas."</blockquote><cite>Paulo Moreira</cite></div>
+          <div class="dep-card s-el" data-delay="360"><div class="dep-stars">★★★★★</div><blockquote>"Muito competentes!"</blockquote><cite>Rosana Dos Santos</cite></div>
+          <div class="dep-card s-el" data-delay="440"><div class="dep-stars">★★★★★</div><blockquote>"Excelentes profissionais!"</blockquote><cite>Raquel Soares Pinheiro</cite></div>
+          <div class="dep-card s-el" data-delay="520"><div class="dep-stars">★★★★★</div><blockquote>"Muito bem atendido!"</blockquote><cite>Horlin Passos</cite></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑧  FAQ  ·  enter 83%  leave 95%  midpoint 89% → top:801vh -->
+  <section class="scroll-section align-center" style="top:801vh"
+           data-enter="83" data-leave="95" data-animation="stagger-up">
+    <div class="container">
+      <div class="section-inner" style="max-width:780px;margin:0 auto">
+        <div class="s-header s-el" data-delay="0">
+          <span class="section-tag">FAQ</span>
+          <h2 class="section-title" style="color:#fff">Dúvidas <em>frequentes</em></h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item s-el" data-delay="80">
+            <button class="faq-q" aria-expanded="false"><span>O escritório atende casos de isenção de impostos para PCD?</span><svg class="faq-icon" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#C89A3D" stroke-width="2"><path d="M5 8l5 5 5-5"/></svg></button>
+            <div class="faq-a"><p>Sim. O escritório possui atuação especializada em isenção de impostos para pessoas com deficiência, incluindo IPVA, ICMS e IPI.</p></div>
+          </div>
+          <div class="faq-item s-el" data-delay="140">
+            <button class="faq-q" aria-expanded="false"><span>Servidor público pode procurar o escritório?</span><svg class="faq-icon" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#C89A3D" stroke-width="2"><path d="M5 8l5 5 5-5"/></svg></button>
+            <div class="faq-a"><p>Sim. O escritório atua na defesa dos direitos de servidores municipais, estaduais e federais.</p></div>
+          </div>
+          <div class="faq-item s-el" data-delay="200">
+            <button class="faq-q" aria-expanded="false"><span>O atendimento pode começar pelo WhatsApp?</span><svg class="faq-icon" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#C89A3D" stroke-width="2"><path d="M5 8l5 5 5-5"/></svg></button>
+            <div class="faq-a"><p>Sim. O primeiro contato pode ser feito pelo WhatsApp para entender a situação e orientar os próximos passos.</p></div>
+          </div>
+          <div class="faq-item s-el" data-delay="260">
+            <button class="faq-q" aria-expanded="false"><span>O escritório atende empresas?</span><svg class="faq-icon" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#C89A3D" stroke-width="2"><path d="M5 8l5 5 5-5"/></svg></button>
+            <div class="faq-a"><p>Sim. Há consultoria especializada para empresas e órgãos públicos em licitações e contratos.</p></div>
+          </div>
+          <div class="faq-item s-el" data-delay="320">
+            <button class="faq-q" aria-expanded="false"><span>Onde fica o escritório?</span><svg class="faq-icon" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#C89A3D" stroke-width="2"><path d="M5 8l5 5 5-5"/></svg></button>
+            <div class="faq-a"><p>Rua Dr. Antonio Gonçalves Lana, Office, 142 – sala 501, Ed. Guarapiranga, Ponte Nova – MG.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑨  CTA  ·  enter 92%  leave 100%  midpoint 96% → top:1344vh -->
+  <section class="scroll-section align-center" style="top:864vh"
+           data-enter="92" data-leave="100" data-animation="fade-up" data-persist="true">
+    <div class="container">
+      <div class="section-inner cta-inner">
+        <span class="section-tag s-el" data-delay="0">Fale conosco</span>
+        <h2 class="cta-title s-el" data-delay="120">Precisa de orientação jurídica<br /><em>com segurança?</em></h2>
+        <p class="cta-sub s-el" data-delay="260">Entre em contato com o Rocha e Moreira e receba uma análise inicial sobre o seu caso.</p>
+        <a href="https://wa.me/5531992613490?text=Olá,%20gostaria%20de%20uma%20análise%20do%20meu%20caso." target="_blank" rel="noopener" class="btn-cta-main s-el" data-delay="380">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.134.558 4.133 1.527 5.874L0 24l6.322-1.499A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 01-5.028-1.381l-.36-.214-3.735.885.932-3.635-.235-.374A9.787 9.787 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>
+          Falar agora pelo WhatsApp
+        </a>
+        <div class="cta-contacts s-el" data-delay="500">
+          <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>Ponte Nova – MG</span>
+          <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.17 11.8 19.79 19.79 0 011.1 3.18 2 2 0 013.08 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6z"/></svg>(31) 99261-3490</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /scroll-container -->
+
+<!-- ── FOOTER (normal flow, after scroll container) ── -->
+<footer id="site-footer">
+  <div class="footer-inner container">
+    <div class="footer-brand">
+      <a href="#" class="logo" id="footer-logo-home">
+        <span class="logo-rm">R&amp;M</span>
+        <span class="logo-text">
+          <span class="logo-l1">Rocha e Moreira</span>
+          <span class="logo-l2">Sociedade de Advogados</span>
+        </span>
+      </a>
+      <p>Atendimento jurídico especializado em Ponte Nova – MG.</p>
+      <div class="footer-socials">
+        <a href="https://br.linkedin.com/company/rmmsociedadedeadvogados" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://www.facebook.com/rochamoreiramiranda" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://www.instagram.com/rochaemoreira/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-nav">
+      <h5>Navegação</h5>
+      <ul>
+        <li><a href="#" data-goto="0">Início</a></li>
+        <li><a href="#" data-goto="0.14">Especialidades</a></li>
+        <li><a href="#" data-goto="0.41">Escritório</a></li>
+        <li><a href="#" data-goto="0.53">Equipe</a></li>
+        <li><a href="#" data-goto="0.75">Depoimentos</a></li>
+        <li><a href="#" data-goto="0.92">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h5>Contato</h5>
+      <ul>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C89A3D" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg><span>Rua Dr. Antonio Gonçalves Lana, Office, 142 – sala 501, Ed. Guarapiranga, Ponte Nova – MG</span></li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C89A3D" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.17 11.8 19.79 19.79 0 011.1 3.18 2 2 0 013.08 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6z"/></svg><a href="https://wa.me/5531992613490">(31) 99261-3490</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <p>© 2024 Rocha e Moreira Sociedade de Advogados. Todos os direitos reservados.</p>
+    <p class="footer-disclaimer">Este site tem caráter informativo e não constitui consulta jurídica.</p>
+  </div>
+</footer>
+
+<!-- ── WhatsApp Float ─── -->
+<a href="https://wa.me/5531992613490?text=Olá,%20gostaria%20de%20falar%20com%20um%20advogado." target="_blank" rel="noopener" class="wf-btn" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.134.558 4.133 1.527 5.874L0 24l6.322-1.499A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 01-5.028-1.381l-.36-.214-3.735.885.932-3.635-.235-.374A9.787 9.787 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>
+  <span class="wf-tip">Falar com advogado</span>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
