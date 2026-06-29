@@ -445,47 +445,100 @@ button{border:none;background:none;cursor:pointer;font-family:inherit}
   .scroll-section.align-left .section-inner{max-width:58vw}
 }
 @media(max-width:768px){
-  .container{padding:0 20px}
+  /* ── Layout base ── */
+  .container{padding:0 18px}
   .main-nav,.btn-nav-cta{display:none}
   .hamburger{display:flex}
-  .header-inner{padding:0 20px}
-  .cards-grid,.dep-grid{grid-template-columns:1fr}
-  .equipe-grid{grid-template-columns:minmax(0,340px);justify-content:center}
-  .section-equipe{padding-top:60px}
-  .dif-grid{grid-template-columns:1fr}
+  .header-inner{padding:0 18px;height:60px}
 
-  /* Corrige especificidade — garante 100% em mobile */
+  /* ── Corrige especificidade: garante largura total no mobile ── */
   .align-left .section-inner,
   .align-right .section-inner,
   .scroll-section.align-left .section-inner{max-width:100%}
   .align-right .section-inner{margin-left:0}
 
-  /* Tipografia mobile */
-  .section-title{font-size:clamp(1.55rem,5.2vw,2rem);margin-bottom:14px}
-  .section-sub{font-size:.95rem}
-  .s-header{margin-bottom:32px}
-  .s-body{font-size:.97rem;margin-bottom:24px}
+  /* ── Tipografia geral — bem menor no mobile ── */
+  .section-tag{font-size:.62rem;letter-spacing:.14em;margin-bottom:8px}
+  .section-title{font-size:1.25rem;line-height:1.2;margin-bottom:10px}
+  .section-title em{font-size:.95em}        /* caligrafia menor */
+  .section-sub{font-size:.85rem;line-height:1.6;margin-bottom:0}
+  .s-header{margin-bottom:20px}
+  .s-body{font-size:.88rem;line-height:1.7;margin-bottom:18px}
 
-  /* Hero mobile */
-  .hero-headline{font-size:clamp(1.65rem,6.5vw,2.1rem);line-height:1.15}
-  .hero-sub{font-size:.96rem;margin-bottom:28px}
-  .hero-badges{gap:7px;margin-bottom:20px}
-  .badge{font-size:.68rem;padding:6px 11px}
+  /* ── Hero mobile ── */
+  .hero-headline{font-size:1.3rem;line-height:1.18;margin-bottom:14px}
+  .hero-headline em{font-size:.92em}
+  .hero-sub{font-size:.85rem;line-height:1.65;margin-bottom:20px}
+  .hero-badges{gap:6px;margin-bottom:14px}
+  .badge{font-size:.62rem;padding:5px 10px}
+  .hero-btns{flex-direction:column;gap:8px}
+  .btn-primary,.btn-secondary{padding:13px 20px;font-size:.88rem;width:100%;justify-content:center}
+  .scroll-hint{display:none}
 
-  /* CTA mobile */
-  .cta-title{font-size:clamp(1.6rem,5.5vw,2rem)}
-  .cta-sub{font-size:.96rem;margin-bottom:28px}
+  /* ── Especialidades — mostra 3 cards, esconde os outros ── */
+  .cards-grid{grid-template-columns:1fr;gap:10px}
+  .cards-grid .esp-card:nth-child(n+4){display:none}
+  .esp-card{padding:16px 14px}
+  .esp-card h3{font-size:.95rem;margin-bottom:6px}
+  .esp-card p{font-size:.82rem;margin-bottom:10px;line-height:1.55}
+  .card-icon{width:36px;height:36px;border-radius:8px;margin-bottom:10px}
+  .card-link{font-size:.8rem}
 
-  /* Botões mobile */
-  .hero-btns{flex-direction:column}
-  .btn-primary,.btn-secondary,.btn-cta-main{width:100%;justify-content:center;padding:15px 24px}
+  /* ── Diferenciais — mostra 3 itens ── */
+  .dif-grid{grid-template-columns:1fr;gap:0}
+  .dif-grid .dif-item:nth-child(n+4){display:none}
+  .dif-item{padding:14px 14px}
+  .dif-item h4{font-size:.92rem;margin-bottom:5px}
+  .dif-item p{font-size:.82rem;line-height:1.55}
+  .dif-icon{width:34px;height:34px;border-radius:7px;margin-bottom:10px}
 
-  /* Sobre stats */
-  .sobre-stats{gap:16px}
+  /* ── Sobre stats ── */
+  .sobre-stats{gap:12px;padding:14px 0;margin:16px 0 20px}
+  .stat-num{font-size:1.7rem}
+  .stat-suf{font-size:1.1rem}
+  .stat-lbl{font-size:.62rem}
 
-  /* Footer */
-  .footer-inner{grid-template-columns:1fr;gap:36px}
-  .footer-bottom{flex-direction:column;text-align:center}
-  .wf-btn{bottom:20px;right:20px;width:52px;height:52px}
-  .cta-contacts{flex-direction:column;gap:10px}
+  /* ── Equipe ── */
+  .section-equipe{padding-top:48px;padding-bottom:30px}
+  .section-equipe .s-header{margin-bottom:24px}
+  .equipe-grid{grid-template-columns:minmax(0,300px);justify-content:center;gap:18px}
+  .equipe-info{padding:16px 18px 20px}
+  .equipe-name{font-size:1.1rem;margin-bottom:6px}
+  .equipe-info p{font-size:.82rem;line-height:1.6}
+  .equipe-role{font-size:.6rem;margin-bottom:6px}
+
+  /* ── Timeline ── */
+  .timeline{padding-left:0}
+  .tl-line{left:28px}
+  .tl-num{width:56px;height:56px;font-size:1rem}
+  .tl-step{gap:16px;padding-bottom:24px}
+  .tl-body{padding-top:12px}
+  .tl-body h4{font-size:.95rem;margin-bottom:5px}
+  .tl-body p{font-size:.83rem;line-height:1.6}
+
+  /* ── Depoimentos — mostra 3 cards ── */
+  .dep-grid{grid-template-columns:1fr;gap:10px;margin-top:4px}
+  .dep-grid .dep-card:nth-child(n+4){display:none}
+  .dep-card{padding:16px}
+  .dep-card blockquote{font-size:.88rem;line-height:1.55;margin-bottom:8px}
+  .dep-card cite{font-size:.75rem}
+  .dep-stars{font-size:.8rem;margin-bottom:8px}
+  .google-seal{font-size:.78rem;padding:6px 14px;margin-top:4px}
+
+  /* ── FAQ ── */
+  .faq-q{font-size:.9rem;padding:16px 0}
+  .faq-a p{font-size:.85rem}
+
+  /* ── CTA ── */
+  .cta-title{font-size:1.25rem;line-height:1.2;margin-bottom:12px}
+  .cta-title em{font-size:.93em}
+  .cta-sub{font-size:.87rem;margin-bottom:24px}
+  .btn-cta-main{width:100%;justify-content:center;padding:15px 20px;font-size:.95rem}
+  .cta-contacts{flex-direction:column;gap:8px;margin-top:16px}
+  .cta-contacts span{font-size:.8rem}
+
+  /* ── Footer ── */
+  .footer-inner{grid-template-columns:1fr;gap:28px}
+  .footer-bottom{flex-direction:column;text-align:center;gap:8px}
+  .wf-btn{bottom:18px;right:18px;width:50px;height:50px}
 }
