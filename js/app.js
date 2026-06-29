@@ -3,7 +3,7 @@
    Lenis + GSAP ScrollTrigger + Canvas Frame Pools
    ═══════════════════════════════════════════════════════ */
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 // ── Canvas setup ──────────────────────────────────────
 const canvas = document.getElementById('main-canvas');
@@ -151,24 +151,17 @@ function initScene() {
   }
 }
 
-// ── Lenis smooth scroll ───────────────────────────────
-let lenis;
+// ── Scroll setup (native + GSAP ticker) ──────────────
+let lenis = null;
 function initLenis() {
-  lenis = new Lenis({
-    duration: 1.3,
-    easing: t => Math.min(1, 1.001 - Math.pow(2, -10*t)),
-    smoothWheel: true,
-    wheelMultiplier: 0.9,
-  });
-  lenis.on('scroll', ScrollTrigger.update);
-  gsap.ticker.add(t => lenis.raf(t * 1000));
+  // Native scroll — mais confiável em produção com ScrollTrigger
   gsap.ticker.lagSmoothing(0);
 }
 
 // ── Header ────────────────────────────────────────────
 function initHeader() {
   const h = document.getElementById('site-header');
-  lenis.on('scroll', ({scroll}) => h.classList.toggle('solid', scroll > 60));
+  window.addEventListener('scroll', () => h.classList.toggle('solid', window.scrollY > 60), { passive: true });
 }
 
 // ── Hamburger ─────────────────────────────────────────
@@ -188,19 +181,22 @@ function initHamburger() {
 }
 
 // ── Nav goto links ────────────────────────────────────
+function smoothScrollTo(target, duration = 1.8) {
+  gsap.to(window, { scrollTo: target, duration, ease: 'power2.inOut' });
+}
 function initNavLinks() {
   document.querySelectorAll('[data-goto]').forEach(el => {
     el.addEventListener('click', e => {
       e.preventDefault();
-      const pct    = parseFloat(el.dataset.goto);
-      const sc     = document.getElementById('scroll-container');
-      const total  = sc.scrollHeight - window.innerHeight;
-      lenis && lenis.scrollTo(pct * total, {duration:2});
+      const pct   = parseFloat(el.dataset.goto);
+      const sc    = document.getElementById('scroll-container');
+      const total = sc.scrollHeight - window.innerHeight;
+      smoothScrollTo(pct * total, 2);
     });
   });
-  document.getElementById('logo-home').addEventListener('click', e => { e.preventDefault(); lenis && lenis.scrollTo(0,{duration:1.8}); });
+  document.getElementById('logo-home').addEventListener('click', e => { e.preventDefault(); smoothScrollTo(0); });
   const fh = document.getElementById('footer-logo-home');
-  if (fh) fh.addEventListener('click', e => { e.preventDefault(); lenis && lenis.scrollTo(0,{duration:1.8}); });
+  if (fh) fh.addEventListener('click', e => { e.preventDefault(); smoothScrollTo(0); });
 }
 
 // ── Main ScrollTrigger (canvas + overlay) ────────────
