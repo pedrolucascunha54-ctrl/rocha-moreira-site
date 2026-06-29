@@ -498,14 +498,16 @@ button{border:none;background:none;cursor:pointer;font-family:inherit}
   .stat-suf{font-size:1.1rem}
   .stat-lbl{font-size:.62rem}
 
-  /* ── Equipe ── */
-  .section-equipe{padding-top:48px;padding-bottom:30px}
-  .section-equipe .s-header{margin-bottom:24px}
-  .equipe-grid{grid-template-columns:minmax(0,300px);justify-content:center;gap:18px}
-  .equipe-info{padding:16px 18px 20px}
-  .equipe-name{font-size:1.1rem;margin-bottom:6px}
-  .equipe-info p{font-size:.82rem;line-height:1.6}
-  .equipe-role{font-size:.6rem;margin-bottom:6px}
+  /* ── Equipe — dois cards lado a lado no mobile ── */
+  .section-equipe{padding-top:44px;padding-bottom:20px;align-items:center}
+  .section-equipe .s-header{margin-bottom:18px}
+  .equipe-grid{grid-template-columns:repeat(2,1fr);gap:10px;width:100%}
+  .equipe-card{border-radius:10px}
+  .equipe-photo-wrap img{max-height:160px;object-fit:cover;object-position:center top}
+  .equipe-info{padding:10px 12px 14px}
+  .equipe-name{font-size:.88rem;margin-bottom:4px;line-height:1.2}
+  .equipe-info p{font-size:.75rem;line-height:1.5;display:none}
+  .equipe-role{font-size:.58rem;margin-bottom:4px}
 
   /* ── Timeline ── */
   .timeline{padding-left:0}
