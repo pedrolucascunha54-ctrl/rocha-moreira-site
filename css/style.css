@@ -445,20 +445,45 @@ button{border:none;background:none;cursor:pointer;font-family:inherit}
   .scroll-section.align-left .section-inner{max-width:58vw}
 }
 @media(max-width:768px){
-  .container{padding:0 24px}
+  .container{padding:0 20px}
   .main-nav,.btn-nav-cta{display:none}
   .hamburger{display:flex}
-  .header-inner{padding:0 24px}
+  .header-inner{padding:0 20px}
   .cards-grid,.dep-grid{grid-template-columns:1fr}
-  .equipe-grid{grid-template-columns:minmax(0,420px);justify-content:center}
-  .section-equipe{padding-top:80px}
+  .equipe-grid{grid-template-columns:minmax(0,340px);justify-content:center}
+  .section-equipe{padding-top:60px}
   .dif-grid{grid-template-columns:1fr}
-  .align-left .section-inner,.align-right .section-inner{max-width:100%}
+
+  /* Corrige especificidade — garante 100% em mobile */
+  .align-left .section-inner,
+  .align-right .section-inner,
+  .scroll-section.align-left .section-inner{max-width:100%}
   .align-right .section-inner{margin-left:0}
-  .sobre-stats{gap:20px}
-  .hero-headline{font-size:2.3rem}
+
+  /* Tipografia mobile */
+  .section-title{font-size:clamp(1.55rem,5.2vw,2rem);margin-bottom:14px}
+  .section-sub{font-size:.95rem}
+  .s-header{margin-bottom:32px}
+  .s-body{font-size:.97rem;margin-bottom:24px}
+
+  /* Hero mobile */
+  .hero-headline{font-size:clamp(1.65rem,6.5vw,2.1rem);line-height:1.15}
+  .hero-sub{font-size:.96rem;margin-bottom:28px}
+  .hero-badges{gap:7px;margin-bottom:20px}
+  .badge{font-size:.68rem;padding:6px 11px}
+
+  /* CTA mobile */
+  .cta-title{font-size:clamp(1.6rem,5.5vw,2rem)}
+  .cta-sub{font-size:.96rem;margin-bottom:28px}
+
+  /* Botões mobile */
   .hero-btns{flex-direction:column}
-  .btn-primary,.btn-secondary,.btn-cta-main{width:100%;justify-content:center}
+  .btn-primary,.btn-secondary,.btn-cta-main{width:100%;justify-content:center;padding:15px 24px}
+
+  /* Sobre stats */
+  .sobre-stats{gap:16px}
+
+  /* Footer */
   .footer-inner{grid-template-columns:1fr;gap:36px}
   .footer-bottom{flex-direction:column;text-align:center}
   .wf-btn{bottom:20px;right:20px;width:52px;height:52px}
